@@ -13,18 +13,17 @@ function Button<T extends React.ElementType>({
     const Wrapper = as || 'button'
     return (
         <Wrapper
-            className={clsx(
-                'rounded-3xl text-lg font-semibold text-white md:hover:opacity-90',
-                {
-                    'px-10 py-3': size === 'large',
-                    'px-10 py-2.5': size === 'medium',
-                    'px-8 py-2': size === 'small',
-                    'from-gradientStart primary via-gradientMid to-gradientStop bg-gradient-to-r ':
-                        variant === 'primary',
-                    'bg-borderColor secondary': variant === 'secondary',
-                    'bg-highlight highlight': variant === 'highlight',
-                }
-            )}
+            className={clsx('rounded-[10px] text-lg font-medium default-btn ', {
+                'px-10 py-3': size === 'large',
+                'px-10 py-2.5': size === 'medium',
+                'px-8 py-2': size === 'small',
+                'primary bg-primary-500 text-white outline-secondary-50  focus:outline-2 enabled:hover:hover-btn disabled:bg-primary-800 disabled:text-primary-700':
+                    variant === 'primary',
+                'secondary bg-secondary-850 text-secondary-300 hover:bg-secondary-800 hover:text-secondary-200 disabled:bg-secondary-900 disabled:text-secondary-800':
+                    variant === 'secondary',
+                'highlight bg-highlight-500 text-white enabled:hover:bg-highlight-600 disabled:text-highlight-300':
+                    variant === 'highlight',
+            })}
             {...props}
         >
             {children}
